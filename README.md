@@ -14,3 +14,4 @@
     -- Install Axios
     -- CORS - Install cors in backen => add midlware to wtih configurations: origin, credentials: true
     -- Whenever you're making API call so pass the axios => {withcredentials: true} else it wont back token
+-   Install React/redux + @reduxjs/toolkit => ConfigureStore => Add provider to root app file => add reducer to store
