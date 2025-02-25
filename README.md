@@ -10,3 +10,7 @@
     -- Create Login, Profile Route
     -- Create Outlate
 -   Create Footer.jsx seprate component DaisyUi
+-   Update Login Page UI
+    -- Install Axios
+    -- CORS - Install cors in backen => add midlware to wtih configurations: origin, credentials: true
+    -- Whenever you're making API call so pass the axios => {withcredentials: true} else it wont back token
