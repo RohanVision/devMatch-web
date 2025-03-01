@@ -16,3 +16,6 @@
     -- Whenever you're making API call so pass the axios => {withcredentials: true} else it wont back token
 -   Install React/redux + @reduxjs/toolkit => ConfigureStore => Add provider to root app file => add reducer to store
 -   IF token is not present redirect to login page
+-   Logout feature
+-   Get the feed and add the feed and add the feed in the store
+-   build user card on feed
