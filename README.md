@@ -19,3 +19,6 @@
 -   Logout feature
 -   Get the feed and add the feed and add the feed in the store
 -   build user card on feed
+-   Edit Profile Feature
+-   Show Toast message
+-   Connection Request Page
