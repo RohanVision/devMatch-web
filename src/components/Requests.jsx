@@ -1,12 +1,28 @@
-import { useEffect } from "react";
+/* eslint-disable no-unused-vars */
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-import { addRequests } from "../utils/requestSlice";
+import { addRequests, removeRequest } from "../utils/requestSlice";
 
 const Requests = () => {
 	const dispatch = useDispatch();
 	const requests = useSelector((store) => store.request);
+
+	const reviewRequests = async (status, _id) => {
+		try {
+			const res = await axios.post(
+				BASE_URL + "/request/review/" + status + "/" + _id,
+				{},
+				{
+					withCredentials: true,
+				}
+			);
+			dispatch(removeRequest(_id));
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	const fetchRequests = async () => {
 		try {
@@ -25,13 +41,8 @@ const Requests = () => {
 	}, []);
 
 	if (!requests) return;
-
 	if (requests === 0)
-		return (
-			<>
-				<h1>No Request found</h1>
-			</>
-		);
+		return <h1 className="flex  justify-center m-4">No Request found</h1>;
 
 	return (
 		<div>
@@ -70,10 +81,20 @@ const Requests = () => {
 								</div>
 							</div>
 							<div className="flex gap-2">
-								<button className="btn btn-primary">
+								<button
+									className="btn btn-primary"
+									onClick={() => {
+										reviewRequests("rejected", request._id);
+									}}
+								>
 									Reject
 								</button>
-								<button className="btn btn-secondary">
+								<button
+									className="btn btn-secondary"
+									onClick={() => {
+										reviewRequests("accepted", request._id);
+									}}
+								>
 									Accept
 								</button>
 							</div>
