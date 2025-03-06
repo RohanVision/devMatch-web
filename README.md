@@ -22,3 +22,5 @@
 -   Edit Profile Feature
 -   Show Toast message
 -   Connection Request Page
+-   New Page - See all my connections
+-   New Page - see all my requests

@@ -41,6 +41,7 @@ const Connections = () => {
 			<div className="flex justify-center items-center flex-col">
 				{connections.map((connection) => {
 					const {
+						_id,
 						firstName,
 						lastName,
 						age,
@@ -52,7 +53,7 @@ const Connections = () => {
 					return (
 						<div
 							className="flex w-1/2 gap-5 items-center bg-gray-300 m-4 p-4"
-							key={connection._id}
+							key={_id}
 						>
 							<div>
 								<img
