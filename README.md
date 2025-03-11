@@ -25,3 +25,4 @@
 -   New Page - See all my connections
 -   New Page - see all my requests
 -   Feature - Acceot/Reject Connection Request
+-   Send/Ignore the user card from the feed

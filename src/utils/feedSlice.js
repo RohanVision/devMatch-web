@@ -9,7 +9,10 @@ const feedSlice = createSlice({
             return action.payload;
         },
         // eslint-disable-next-line no-unused-vars
-        removeFeed: (state, action) => null,
+        removeFeed: (state, action) => {
+            const newFeed = state.filter((user) => user._id !== action.payload);
+            return newFeed;
+        }
     }
 });
 
