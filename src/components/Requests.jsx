@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
-import { addRequests, removeRequest } from "../utils/requestSlice";
+import { addRequests, removeRequest } from "../utils/requestSLice";
 
 const Requests = () => {
 	const dispatch = useDispatch();

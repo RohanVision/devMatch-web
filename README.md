@@ -26,3 +26,5 @@
 -   New Page - see all my requests
 -   Feature - Acceot/Reject Connection Request
 -   Send/Ignore the user card from the feed
+
+ssh -i "devMatch-secret.pem" ubuntu@ec2-3-133-116-183.us-east-2.compute.amazonaws.com
