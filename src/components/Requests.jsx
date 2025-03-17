@@ -20,7 +20,7 @@ const Requests = () => {
 			);
 			dispatch(removeRequest(_id));
 		} catch (error) {
-			console.log(error);
+			console.error(error);
 		}
 	};
 
@@ -29,7 +29,6 @@ const Requests = () => {
 			const res = await axios.get(BASE_URL + "/user/request/received", {
 				withCredentials: true,
 			});
-			console.log(res?.data?.data);
 			dispatch(addRequests(res.data.data));
 		} catch (error) {
 			console.error(error);
@@ -41,14 +40,20 @@ const Requests = () => {
 	}, []);
 
 	if (!requests) return;
-	if (requests === 0)
-		return <h1 className="flex  justify-center m-4">No Request found</h1>;
+
+	if (requests.length === 0)
+		return (
+			<h1 className="flex justify-center text-white">
+				No Requests Found
+			</h1>
+		);
 
 	return (
 		<div>
 			<h1 className="text-white text-center text-3xl font-semibold py-4">
-				User Requests
+				Connections Requests
 			</h1>
+
 			<div className="flex justify-center items-center flex-col">
 				{requests.map((request) => {
 					const {
@@ -83,17 +88,17 @@ const Requests = () => {
 							<div className="flex gap-2">
 								<button
 									className="btn btn-primary"
-									onClick={() => {
-										reviewRequests("rejected", request._id);
-									}}
+									onClick={() =>
+										reviewRequests("rejected", request._id)
+									}
 								>
 									Reject
 								</button>
 								<button
 									className="btn btn-secondary"
-									onClick={() => {
-										reviewRequests("accepted", request._id);
-									}}
+									onClick={() =>
+										reviewRequests("accepted", request._id)
+									}
 								>
 									Accept
 								</button>

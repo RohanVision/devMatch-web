@@ -13,10 +13,13 @@ const Connections = () => {
 			const res = await axios.get(BASE_URL + "/user/connection", {
 				withCredentials: true,
 			});
-			console.log(res);
-			dispatch(addConnection(res?.data?.data));
+			console.log(res.data.data);
+			dispatch(addConnection(res.data.data));
 		} catch (error) {
-			console.error(error);
+			console.error(
+				"Error fetching connections:",
+				error.response?.data || error
+			);
 		}
 	};
 
@@ -26,10 +29,10 @@ const Connections = () => {
 
 	if (!connections) return;
 
-	if (connections === 0)
+	if (connections.length === 0)
 		return (
 			<>
-				<h1>No Connections found</h1>
+				<h1 className="flex justify-center">No Connections found</h1>
 			</>
 		);
 
